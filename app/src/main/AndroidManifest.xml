@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="cqg.com.xposed">
+
+    <!-- 读取手机状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 读取联系人权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- 添加联系人 -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <!-- 拨打电话权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 作为xposed模块 -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true"/>
+
+        <!-- 模块描述 -->
+        <meta-data
+            android:name="xposeddescription"
+            android:value="模块描述-首个模块demo"/>
+
+        <!-- XposedBridgeApi的最低版本号 -->
+        <meta-data
+            android:name="xposedminversion"
+            android:value="54"/>
+
+        <activity android:name="com.cqg.xposed.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.cqg.xposed.activity.ContactActivity">
+        </activity>
+    </application>
+
+</manifest>
